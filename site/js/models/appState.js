@@ -10,7 +10,7 @@ import Backbone from 'backbone';
 class AppState extends Backbone.Model
 {
    /**
-    * Sets the `className` necessary for constructing a Backbone.Model with `backbone-parse-es6`.
+    * Sets the `className` necessary for constructing a Backbone.Model with `typhonjs-backbone-parse`.
     *
     * @returns {string}
     */

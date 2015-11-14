@@ -1,20 +1,20 @@
 window.esdocSearchIndex = [
   [
-    "backbone-parse-es6-demo/site/js/app.js~app",
+    "typhonjs-backbone-parse-todos/site/js/app.js~app",
     "class/typhonjs-backbone-parse-todos/site/js/App.js~App.html",
-    "<span>App</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/App.js</span>",
+    "<span>App</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/App.js</span>",
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/router/approuter.js~approuter",
+    "typhonjs-backbone-parse-todos/site/js/router/approuter.js~approuter",
     "class/typhonjs-backbone-parse-todos/site/js/router/AppRouter.js~AppRouter.html",
-    "<span>AppRouter</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/router/AppRouter.js</span>",
+    "<span>AppRouter</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/router/AppRouter.js</span>",
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/models/appstate.js~appstate",
+    "typhonjs-backbone-parse-todos/site/js/models/appstate.js~appstate",
     "class/typhonjs-backbone-parse-todos/site/js/models/appState.js~AppState.html",
-    "<span>AppState</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/models/appState.js</span>",
+    "<span>AppState</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/models/appState.js</span>",
     "class"
   ],
   [
@@ -60,27 +60,27 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/models/item.js~item",
+    "typhonjs-backbone-parse-todos/site/js/models/item.js~item",
     "class/typhonjs-backbone-parse-todos/site/js/models/Item.js~Item.html",
-    "<span>Item</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/models/Item.js</span>",
+    "<span>Item</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/models/Item.js</span>",
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/views/itemview.js~itemview",
+    "typhonjs-backbone-parse-todos/site/js/views/itemview.js~itemview",
     "class/typhonjs-backbone-parse-todos/site/js/views/ItemView.js~ItemView.html",
-    "<span>ItemView</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/views/ItemView.js</span>",
+    "<span>ItemView</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/views/ItemView.js</span>",
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/views/loginview.js~loginview",
+    "typhonjs-backbone-parse-todos/site/js/views/loginview.js~loginview",
     "class/typhonjs-backbone-parse-todos/site/js/views/LogInView.js~LogInView.html",
-    "<span>LogInView</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/views/LogInView.js</span>",
+    "<span>LogInView</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/views/LogInView.js</span>",
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/views/managetodosview.js~managetodosview",
+    "typhonjs-backbone-parse-todos/site/js/views/managetodosview.js~managetodosview",
     "class/typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js~ManageTodosView.html",
-    "<span>ManageTodosView</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/views/ManageTodosView.js</span>",
+    "<span>ManageTodosView</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js</span>",
     "class"
   ],
   [
@@ -108,9 +108,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/collections/todolist.js~todolist",
+    "typhonjs-backbone-parse-todos/site/js/collections/todolist.js~todolist",
     "class/typhonjs-backbone-parse-todos/site/js/collections/todoList.js~TodoList.html",
-    "<span>TodoList</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/collections/todoList.js</span>",
+    "<span>TodoList</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/collections/todoList.js</span>",
     "class"
   ],
   [
@@ -138,9 +138,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "backbone-parse-es6-demo/site/js/models/appstate.js~appstate",
+    "typhonjs-backbone-parse-todos/site/js/models/appstate.js~appstate",
     "variable/index.html#static-variable-appState",
-    "<span>appState</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/models/appState.js</span>",
+    "<span>appState</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/models/appState.js</span>",
     "variable"
   ],
   [
@@ -198,9 +198,9 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "backbone-parse-es6-demo/site/js/collections/todolist.js~todolist",
+    "typhonjs-backbone-parse-todos/site/js/collections/todolist.js~todolist",
     "variable/index.html#static-variable-todoList",
-    "<span>todoList</span> <span class=\"search-result-import-path\">backbone-parse-es6-demo/site/js/collections/todoList.js</span>",
+    "<span>todoList</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/collections/todoList.js</span>",
     "variable"
   ],
   [
