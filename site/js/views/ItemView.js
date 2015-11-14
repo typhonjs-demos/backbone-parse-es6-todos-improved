@@ -26,7 +26,7 @@ export default class ItemView extends Backbone.View
    {
       return {
          'click .toggle': 'toggleDone',
-         'longTap label.todo-content': 'edit',
+         'doubleTap label.todo-content': 'edit',
          'dblclick label.todo-content': 'edit',
          'click .todo-destroy': 'clear',
          'keypress .edit': 'updateOnEnter',
