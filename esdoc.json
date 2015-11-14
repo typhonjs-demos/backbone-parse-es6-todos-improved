@@ -1,5 +1,5 @@
 {
-   "title": "backbone-parse-es6-demo",
+   "title": "typhonjs-backbone-parse-todos",
    "source": "site",
    "destination": "docs",
    "excludes": ["^(?:(?!\\.js$).)*$"],
