@@ -41,7 +41,7 @@ export default class AppRouter extends Backbone.Router
     */
    all()
    {
-      if (eventbus.triggerFirst('app:is:user:current'))
+      if (eventbus.triggerFirst('app:user:is:current'))
       {
          appState.set({ filter: 'all' });
       }
@@ -57,7 +57,7 @@ export default class AppRouter extends Backbone.Router
     */
    active()
    {
-      if (eventbus.triggerFirst('app:is:user:current'))
+      if (eventbus.triggerFirst('app:user:is:current'))
       {
          appState.set({ filter: 'active' });
       }
@@ -73,7 +73,7 @@ export default class AppRouter extends Backbone.Router
     */
    completed()
    {
-      if (eventbus.triggerFirst('app:is:user:current'))
+      if (eventbus.triggerFirst('app:user:is:current'))
       {
          appState.set({ filter: 'completed' });
       }

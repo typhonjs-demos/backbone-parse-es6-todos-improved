@@ -1899,7 +1899,7 @@ $__System.register('30', ['5', '6', '7', '8', '9'], function (_export) {
           key: 'className',
 
           /**
-           * Sets the `className` necessary for constructing a Backbone.Model with `backbone-parse-es6`.
+           * Sets the `className` necessary for constructing a Backbone.Model with `typhonjs-backbone-parse`.
            *
            * @returns {string}
            */
@@ -1990,7 +1990,7 @@ $__System.register('33', ['5', '6', '7', '8', '9', '30', '2f'], function (_expor
             _createClass(AppRouter, [{
                key: 'all',
                value: function all() {
-                  if (eventbus.triggerFirst('app:is:user:current')) {
+                  if (eventbus.triggerFirst('app:user:is:current')) {
                      appState.set({ filter: 'all' });
                   } else {
                      Backbone.history.navigate('', { replace: true });
@@ -2004,7 +2004,7 @@ $__System.register('33', ['5', '6', '7', '8', '9', '30', '2f'], function (_expor
             }, {
                key: 'active',
                value: function active() {
-                  if (eventbus.triggerFirst('app:is:user:current')) {
+                  if (eventbus.triggerFirst('app:user:is:current')) {
                      appState.set({ filter: 'active' });
                   } else {
                      Backbone.history.navigate('', { replace: true });
@@ -2018,7 +2018,7 @@ $__System.register('33', ['5', '6', '7', '8', '9', '30', '2f'], function (_expor
             }, {
                key: 'completed',
                value: function completed() {
-                  if (eventbus.triggerFirst('app:is:user:current')) {
+                  if (eventbus.triggerFirst('app:user:is:current')) {
                      appState.set({ filter: 'completed' });
                   } else {
                      Backbone.history.navigate('', { replace: true });
@@ -14502,8 +14502,8 @@ $__System.register('71', ['5', '8', '9', '30', '32', '33', '38', '42', '2f', '2d
                // Wire up the main eventbus to respond to the following events. By passing in `this` in the third field to
                // `on` that sets the context when the callback is invoked.
                eventbus.on('app:create:item', this.createItem, this);
-               eventbus.on('app:is:user:current', this.isUserCurrent, this);
                eventbus.on('app:select:filter', this.selectFilter, this);
+               eventbus.on('app:user:is:current', this.isUserCurrent, this);
                eventbus.on('app:user:login', this.logInUser, this);
                eventbus.on('app:user:logout', this.logOutUser, this);
                eventbus.on('app:user:signup', this.signUpUser, this);

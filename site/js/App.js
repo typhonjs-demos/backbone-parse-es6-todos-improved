@@ -36,8 +36,8 @@ export default class App
       // Wire up the main eventbus to respond to the following events. By passing in `this` in the third field to
       // `on` that sets the context when the callback is invoked.
       eventbus.on('app:create:item', this.createItem, this);
-      eventbus.on('app:is:user:current', this.isUserCurrent, this);
       eventbus.on('app:select:filter', this.selectFilter, this);
+      eventbus.on('app:user:is:current', this.isUserCurrent, this);
       eventbus.on('app:user:login', this.logInUser, this);
       eventbus.on('app:user:logout', this.logOutUser, this);
       eventbus.on('app:user:signup', this.signUpUser, this);
