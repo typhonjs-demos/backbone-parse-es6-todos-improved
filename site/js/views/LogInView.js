@@ -98,8 +98,8 @@ export default class LogInView extends Backbone.View
       // When dealing with a form submit button it's necessary to prevent the default form submission.
       e.preventDefault();
 
-      const username = this.$('#signup-username').val();
-      const password = this.$('#signup-password').val();
+      const username = this.$('#signup-abc').val();
+      const password = this.$('#signup-abcd').val();
 
       // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
       // occurs then briefly show the error message.
