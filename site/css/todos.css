@@ -379,12 +379,14 @@ label[for='toggle-all']
 
 #todo-count
 {
+   font-size: 14px;
    float: left;
    text-align: left;
 }
 
 #filters
 {
+   font-size: 16px;
    margin: 0;
    padding: 0;
    list-style: none;
@@ -416,7 +418,7 @@ label[for='toggle-all']
    line-height: 20px;
    text-decoration: none;
    background: rgba(0, 0, 0, 0.1);
-   font-size: 11px;
+   font-size: 14px;
    padding: 0 10px;
    position: relative;
    border-radius: 3px;
@@ -503,6 +505,7 @@ label[for='toggle-all']
 
 #todoapp .content #user-info
 {
+   font-size: 20px;
    padding: 5px 10px;
    border-top: 1px solid #ededed;
    margin-bottom: 0px;
