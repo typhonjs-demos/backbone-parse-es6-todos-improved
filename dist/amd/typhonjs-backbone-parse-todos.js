@@ -1041,7 +1041,7 @@ $__System.register('d', ['5', '6', '7', '8', '9', 'e', 'c'], function (_export) 
           get: function get() {
             return {
               'click .toggle': 'toggleDone',
-              'doubleTap label.todo-content': 'edit',
+              'longTap label.todo-content': 'edit',
               'dblclick label.todo-content': 'edit',
               'click .todo-destroy': 'clear',
               'keypress .edit': 'updateOnEnter',
