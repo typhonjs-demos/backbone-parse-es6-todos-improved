@@ -1670,6 +1670,18 @@ $__System.register('2d', ['2', '3', '5', '6', '7', '8', '9', '30', '2c', '2e', '
                }
 
                /**
+                * When the view is closed and destroyed invoke clearAll() to clean up any child `ItemViews`.
+                *
+                * `typhonjs-backbone-parse` provides lifecycle methods for `Backbone.View` including close which has to callbacks
+                * `onBeforeClose` and `onDestroy` which allow a TyphonJS View to hook into the lifecycle.
+                */
+            }, {
+               key: 'onDestroy',
+               value: function onDestroy() {
+                  this.clearAll();
+               }
+
+               /**
                 * Toggles all todos items to completed / done then saves each item.
                 */
             }, {

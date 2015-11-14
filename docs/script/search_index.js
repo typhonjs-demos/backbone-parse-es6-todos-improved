@@ -2160,6 +2160,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "typhonjs-backbone-parse-todos/site/js/views/managetodosview.js~managetodosview#ondestroy",
+    "class/typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js~ManageTodosView.html#instance-method-onDestroy",
+    "typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js~ManageTodosView#onDestroy",
+    "method"
+  ],
+  [
     "typhonjs-backbone-parse-todos/site/js/views/managetodosview.js~managetodosview#render",
     "class/typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js~ManageTodosView.html#instance-method-render",
     "typhonjs-backbone-parse-todos/site/js/views/ManageTodosView.js~ManageTodosView#render",
