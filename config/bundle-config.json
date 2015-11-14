@@ -1,0 +1,24 @@
+{
+   "entryPoints":
+   [
+      {
+         "destBaseDir": "./dist",
+         "destFilename": "typhonjs-backbone-parse-todos.js",
+         "formats": ["amd"],
+         "mangle": false,
+         "minify": false,
+         "src": "main.js",
+         "extraConfig": "./config/config-app-paths.js"
+      },
+
+      {
+         "destBaseDir": "./dist",
+         "destFilename": "typhonjs-backbone-parse-todos.min.js",
+         "formats": ["amd"],
+         "mangle": true,
+         "minify": true,
+         "src": "main.js",
+         "extraConfig": "./config/config-app-paths.js"
+      }
+   ]
+}

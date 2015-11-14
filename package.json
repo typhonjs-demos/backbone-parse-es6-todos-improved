@@ -1,0 +1,32 @@
+{
+  "name": "backbone-parse-es6-demo",
+  "version": "0.1.0",
+  "homepage": "https://github.com/typhonjs/backbone-parse-es6-demo",
+  "description": "The proverbial TODO app example w/ `backbone-parse-es6` + JSPM / SystemJS, ESDoc, ESLint, and Gulp.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typhonjs/backbone-parse-es6-demo/backbone-parse-es6-demo.git"
+  },
+  "jspm": {
+    "dependencies": {
+      "backbone": "github:typhonjs/typhonjs-backbone-parse@master",
+      "jquery": "github:typhonjs/zepto@master",
+      "parse": "npm:parse@^1.6.9",
+      "parseinit": "github:typhonjs/typhonjs-core-parse-init@master",
+      "text": "github:systemjs/plugin-text@^0.0.2",
+      "underscore": "npm:underscore@^1.8.3"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.33",
+      "babel-runtime": "npm:babel-runtime@^5.8.29",
+      "core-js": "npm:core-js@^1.2.6"
+    }
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "jspm": "^0.16.14",
+    "typhonjs-config-eslint": "^0.2.0",
+    "typhonjs-core-gulptasks": "^0.3.0"
+  }
+}
