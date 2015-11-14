@@ -6,7 +6,10 @@ import Backbone   from 'backbone';
 import itemTmpl   from 'pathSite/templates/item.html!text';
 
 /**
- * The `Backbone.View` for an item which encapsulates the ability to edit the content of the item.
+ * The `Backbone.View` for an item which encapsulates the ability to edit the content of the item. With a desktop
+ * browser an `Item` can be edited with a double click or double tap when running on a mobile device. Zepto is the
+ * jQuery equivalent library being used and the touch API is added so additional touch events, `doubleTap` are
+ * available.
  */
 export default class ItemView extends Backbone.View
 {

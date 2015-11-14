@@ -923,7 +923,10 @@ $__System.register('d', ['5', '6', '7', '8', '9', 'e', 'c'], function (_export) 
     execute: function () {
 
       /**
-       * The `Backbone.View` for an item which encapsulates the ability to edit the content of the item.
+       * The `Backbone.View` for an item which encapsulates the ability to edit the content of the item. With a desktop
+       * browser an `Item` can be edited with a double click or double tap when running on a mobile device. Zepto is the
+       * jQuery equivalent library being used and the touch API is added so additional touch events, `doubleTap` are
+       * available.
        */
       'use strict';
 
@@ -1573,7 +1576,6 @@ $__System.register('2d', ['2', '3', '5', '6', '7', '8', '9', '30', '2c', '2e', '
                   this.itemViews.forEach(function (itemView) {
                      itemView.remove();
                   });
-
                   this.itemViews.clear();
                }
 

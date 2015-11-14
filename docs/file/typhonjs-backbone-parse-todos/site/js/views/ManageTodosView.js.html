@@ -219,11 +219,7 @@ export default class ManageTodosView extends Backbone.View
     */
    clearAll()
    {
-      this.itemViews.forEach((itemView) =&gt;
-      {
-         itemView.remove();
-      });
-
+      this.itemViews.forEach((itemView) =&gt; { itemView.remove(); });
       this.itemViews.clear();
    }
 
