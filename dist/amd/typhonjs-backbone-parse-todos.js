@@ -1041,6 +1041,7 @@ $__System.register('d', ['5', '6', '7', '8', '9', 'e', 'c'], function (_export) 
           get: function get() {
             return {
               'click .toggle': 'toggleDone',
+              'doubleTap label.todo-content': 'edit',
               'dblclick label.todo-content': 'edit',
               'click .todo-destroy': 'clear',
               'keypress .edit': 'updateOnEnter',
@@ -1694,7 +1695,7 @@ $__System.registerDynamic("31", [], true, function(req, exports, module) {
   var global = this,
       __define = global.define;
   global.define = undefined;
-  module.exports = "<header id=\"header\"></header>\n<div class=\"login\">\n   <form class=\"login-form\">\n      <h2>Log In</h2>\n      <div class=\"error\" style=\"display:none\"></div>\n      <input type=\"text\" id=\"login-username\" placeholder=\"Username\" />\n      <input type=\"password\" id=\"login-password\" placeholder=\"Password\" />\n      <button>Log In</button>\n   </form>\n\n   <form class=\"signup-form\">\n      <h2>Sign Up</h2>\n      <div class=\"error\" style=\"display:none\"></div>\n      <input type=\"text\" id=\"signup-abc\" placeholder=\"Username\" />\n      <input type=\"password\" id=\"signup-abcd\" placeholder=\"Create a Password\" />\n      <button>Sign Up</button>\n   </form>\n</div>";
+  module.exports = "<header id=\"header\"></header>\n<div class=\"login\">\n   <form class=\"login-form\">\n      <h2>Log In</h2>\n      <div class=\"error\" style=\"display:none\"></div>\n      <input type=\"text\" id=\"login-username\" placeholder=\"Username\" />\n      <input type=\"password\" id=\"login-password\" placeholder=\"Password\" />\n      <button>Log In</button>\n   </form>\n\n   <form class=\"signup-form\">\n      <h2>Sign Up</h2>\n      <div class=\"error\" style=\"display:none\"></div>\n      <input type=\"text\" id=\"signup-username\" placeholder=\"Username\" />\n      <input type=\"password\" id=\"signup-password\" placeholder=\"Create a Password\" />\n      <button>Sign Up</button>\n   </form>\n</div>";
   global.define = __define;
   return module.exports;
 });
@@ -1829,8 +1830,8 @@ $__System.register('32', ['5', '6', '7', '8', '9', '31', 'e', '2f'], function (_
                   // When dealing with a form submit button it's necessary to prevent the default form submission.
                   e.preventDefault();
 
-                  var username = this.$('#signup-abc').val();
-                  var password = this.$('#signup-abcd').val();
+                  var username = this.$('#signup-username').val();
+                  var password = this.$('#signup-password').val();
 
                   // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
                   // occurs then briefly show the error message.
