@@ -1785,7 +1785,7 @@ $__System.register('32', ['5', '6', '7', '8', '9', '31', 'e', '2f'], function (_
                }
 
                /**
-                * Attempts to login a user by invoking `triggerThen` sending a `user:login` event which is handled in `App.js`
+                * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
                 * which subsequently returns a Promise.
                 *
                 * @param {object}   e - event data
@@ -1831,8 +1831,8 @@ $__System.register('32', ['5', '6', '7', '8', '9', '31', 'e', '2f'], function (_
                }
 
                /**
-                * Attempts to sign up a user by invoking `triggerThen` sending a `user:signup` event which is handled in `App.js`
-                * which subsequently returns a Promise.
+                * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
+                * `App.js` which subsequently returns a Promise.
                 *
                 * @param {object}   e - event data
                 */

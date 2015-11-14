@@ -118,7 +118,7 @@ export default class LogInView extends Backbone.View
    }
 
    /**
-    * Attempts to login a user by invoking `triggerThen` sending a `user:login` event which is handled in `App.js`
+    * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
     * which subsequently returns a Promise.
     *
     * @param {object}   e - event data
@@ -162,8 +162,8 @@ export default class LogInView extends Backbone.View
    }
 
    /**
-    * Attempts to sign up a user by invoking `triggerThen` sending a `user:signup` event which is handled in `App.js`
-    * which subsequently returns a Promise.
+    * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
+    * `App.js` which subsequently returns a Promise.
     *
     * @param {object}   e - event data
     */
