@@ -236,16 +236,27 @@ const s_INITIALIZE_ROUTE = () =>
    });
 
    // This regex matches the root path, so that it can be set in `Backbone.history.start`
-   let urlMatch;
+   let root, urlMatch;
 
+   // Construct the root path to the web app which is the path above the domain that may include `index.html` or
+   // `indexSrc.html` depending on the runtime. For instance in WebStorm when creating a local server `index.html` is
+   // included in the URL. Running on an actual web server often `index.html` is not put into the URL. When running the
+   // app from source code transpiled in the browser `indexSrc.html` is always in the URL.
    if (typeof window.location !== 'undefined')
    {
-      urlMatch = window.location.toString().match(/\/\/[\s\S]*\/([\s\S]*\/)([\s\S]*\.html)/i);
-   }
+      const windowLocation = window.location.toString();
 
-   // Construct the root path to the web app which is the path above the domain including `index.html` for the bundle
-   // or `indexSrc.html` when running the app from source code transpiled in the browser.
-   const root = urlMatch && urlMatch.length >= 3 ? `${urlMatch[1]}${urlMatch[2]}` : undefined;
+      if (windowLocation.includes('.html'))
+      {
+         urlMatch = windowLocation.match(/\/\/[\s\S]*\/([\s\S]*\/)([\s\S]*\.html)/i);
+         root = urlMatch && urlMatch.length >= 3 ? `${urlMatch[1]}${urlMatch[2]}` : undefined;
+      }
+      else
+      {
+         urlMatch = windowLocation.match(/\/\/[\s\S]*\/([\s\S]*\/)/i);
+         root = urlMatch && urlMatch.length >= 2 ? urlMatch[1] : undefined;
+      }
+   }
 
    Backbone.history.start({ root });
 };

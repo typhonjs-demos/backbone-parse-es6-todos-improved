@@ -13192,7 +13192,7 @@ $__System.register('55', ['9', '2e', 'e', '3a'], function (_export) {
 
 $__System.register('56', ['34', '37', '39', '41', '50', '52', '55', '3f', '3e', '3c'], function (_export) {
   /**
-   * BackboneRuntime.js (TyphonJS / Parse) -- Provides extended functionality over the Parse runtime configuration
+   * ModuleRuntime.js (TyphonJS / Parse) -- Provides extended functionality over the Parse runtime configuration
    * adding several new parts of functionality to Backbone.Events (eventbus) and Backbone.Collections. There are several
    * new dispatch methods in TyphonEvents for triggerFirst (only propagate to the first match then return a value),
    * triggerResults (create an array of results from all targets), and triggerThen which adds ES6 promise support
@@ -14733,15 +14733,24 @@ $__System.register('71', ['5', '8', '9', '30', '32', '33', '38', '42', '2f', '2d
             });
 
             // This regex matches the root path, so that it can be set in `Backbone.history.start`
-            var urlMatch = undefined;
+            var root = undefined,
+                urlMatch = undefined;
 
+            // Construct the root path to the web app which is the path above the domain that may include `index.html` or
+            // `indexSrc.html` depending on the runtime. For instance in WebStorm when creating a local server `index.html` is
+            // included in the URL. Running on an actual web server often `index.html` is not put into the URL. When running the
+            // app from source code transpiled in the browser `indexSrc.html` is always in the URL.
             if (typeof window.location !== 'undefined') {
-               urlMatch = window.location.toString().match(/\/\/[\s\S]*\/([\s\S]*\/)([\s\S]*\.html)/i);
-            }
+               var windowLocation = window.location.toString();
 
-            // Construct the root path to the web app which is the path above the domain including `index.html` for the bundle
-            // or `indexSrc.html` when running the app from source code transpiled in the browser.
-            var root = urlMatch && urlMatch.length >= 3 ? '' + urlMatch[1] + urlMatch[2] : undefined;
+               if (windowLocation.includes('.html')) {
+                  urlMatch = windowLocation.match(/\/\/[\s\S]*\/([\s\S]*\/)([\s\S]*\.html)/i);
+                  root = urlMatch && urlMatch.length >= 3 ? '' + urlMatch[1] + urlMatch[2] : undefined;
+               } else {
+                  urlMatch = windowLocation.match(/\/\/[\s\S]*\/([\s\S]*\/)/i);
+                  root = urlMatch && urlMatch.length >= 2 ? urlMatch[1] : undefined;
+               }
+            }
 
             Backbone.history.start({ root: root });
          };

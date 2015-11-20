@@ -43,10 +43,15 @@ System.config({
       "underscore": "npm:underscore@1.8.3"
     },
     "github:typhonjs/typhonjs-backbone-parse@master": {
+      "backbone-common": "github:typhonjs/typhonjs-core-backbone-common@master",
       "backbone-es6": "github:typhonjs/backbone-es6@master",
       "backbone-parse-es6": "github:typhonjs/backbone-parse-es6@master",
       "backbone-query": "github:typhonjs/typhonjs-core-backbone-query@master",
       "parse": "npm:parse@1.6.9",
+      "underscore": "npm:underscore@1.8.3"
+    },
+    "github:typhonjs/typhonjs-core-backbone-common@master": {
+      "backbone-es6": "github:typhonjs/backbone-es6@master",
       "underscore": "npm:underscore@1.8.3"
     },
     "github:typhonjs/typhonjs-core-backbone-query@master": {
