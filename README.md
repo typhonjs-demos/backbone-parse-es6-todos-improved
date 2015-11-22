@@ -1,5 +1,5 @@
 # backbone-parse-es6-todos-improved
-Provides the canonical TODOs app for backbone-parse-es6 showing improved with TyphonJS functionality with JSPM / SystemJS.
+Provides the canonical TODOs app for backbone-parse-es6 showing improved TyphonJS functionality with JSPM / SystemJS.
 
 More documentation and tutorial coming soon. The basic installation steps:
 - Install Node
