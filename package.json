@@ -10,7 +10,7 @@
   },
   "jspm": {
     "dependencies": {
-      "backbone": "github:typhonjs/typhonjs-backbone-parse@master",
+      "backbone": "github:typhonjs/backbone-parse-es6@master",
       "jquery": "github:typhonjs/zepto@master",
       "parse": "npm:parse@^1.6.9",
       "parseinit": "github:typhonjs/typhonjs-core-parse-init@master",
