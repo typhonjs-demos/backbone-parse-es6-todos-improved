@@ -11,3 +11,6 @@ More documentation and tutorial coming soon. The basic installation steps:
 - "index.html" will load the bundled site. "indexSrc.html" will load the ES6 source transpiled in the browser.
 
 More info coming soon. 
+
+Live demo here:
+http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/
