@@ -12,5 +12,6 @@ More documentation and tutorial coming soon. The basic installation steps:
 
 More info coming soon. 
 
-Live demo here:
-http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/
+Live demo here: http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/
+
+Docs (class overview) here: http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/docs/
