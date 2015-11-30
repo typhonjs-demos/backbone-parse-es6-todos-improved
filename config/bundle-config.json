@@ -3,7 +3,7 @@
    [
       {
          "destBaseDir": "./dist",
-         "destFilename": "typhonjs-backbone-parse-todos.js",
+         "destFilename": "backbone-parse-es6-todos.js",
          "formats": ["amd"],
          "mangle": false,
          "minify": false,
@@ -13,7 +13,7 @@
 
       {
          "destBaseDir": "./dist",
-         "destFilename": "typhonjs-backbone-parse-todos.min.js",
+         "destFilename": "backbone-parse-es6-todos.min.js",
          "formats": ["amd"],
          "mangle": true,
          "minify": true,
