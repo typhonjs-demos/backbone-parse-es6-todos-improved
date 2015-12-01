@@ -54,8 +54,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-parseCollection">parseCollection</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-parseModel">parseModel</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-common/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-typhonExtend">typhonExtend</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-query/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-query@master/src/BackboneQuery.js~BackboneQuery.html">BackboneQuery</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">(typhonjs-core-logging):<br>logger/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html">ConsoleLogger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html">Logger</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/collections</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/collections/todoList.js~TodoList.html">TodoList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-todoList">todoList</a></span></span></li>
@@ -94,10 +97,14 @@ export default class TyphonEvents extends Events
 {
    /**
     * Defers invoking `trigger`.
+    *
+    * @returns {TyphonEvents}
     */
    triggerDefer()
    {
       setTimeout(() =&gt; { super.trigger(...arguments); }, 0);
+
+      return this;
    }
 
    /**

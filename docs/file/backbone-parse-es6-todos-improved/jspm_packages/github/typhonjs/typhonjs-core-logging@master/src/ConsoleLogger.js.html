@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js | typhonjs-backbone-parse-todos API Document</title>
+  <base data-ice="baseUrl" href="../../../../../../../">
+  <title data-ice="title">(typhonjs-core-logging):<br>logger/src/ConsoleLogger.js | typhonjs-backbone-parse-todos API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -73,126 +73,64 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">(typhonjs-core-logging):<br>logger/src/ConsoleLogger.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
-import _                from &apos;underscore&apos;;
-import Backbone         from &apos;backbone&apos;;
-import eventbus         from &apos;mainEventbus&apos;;
-
-import loginTmpl        from &apos;pathSite/templates/login.html!text&apos;;
+/* eslint-disable no-console */
 
 /**
- * Provides a `Backbone.View` allowing a user to login or sign up.
+ * ConsoleLogger.js -- Provides basic logging functionality with all log messages posting to `console.log`.
+ * Trace will also output &quot;console.trace()&quot; after the log message is posted.
  */
-export default class LogInView extends Backbone.View
+export default class ConsoleLogger
 {
    /**
-    * Delegated events for logging in and signing up.
-    *
-    * @returns {object}
+    * Post debug message.
     */
-   get events()
+   debug()
    {
-      return {
-         &apos;submit form.login-form&apos;: &apos;logIn&apos;,
-         &apos;submit form.signup-form&apos;: &apos;signUp&apos;
-      };
+      console.log(`Debug: ${JSON.stringify(arguments)}`);
    }
 
    /**
-    * Sets the element this view is associated with to `.content`.
+    * Post error message.
     */
-   constructor()
+   error()
    {
-      super({ el: &apos;.content&apos; });
+      console.error(`Error: ${JSON.stringify(arguments)}`);
    }
 
    /**
-    * Binds `this` to the methods specified and renders the view.
+    * Post fatal message.
     */
-   initialize()
+   fatal()
    {
-      // Binds the `this` context to all methods such that it is accessible via Backbone event callbacks.
-      _.bindAll(this, &apos;logIn&apos;, &apos;signUp&apos;);
-
-      this.render();
+      console.error(`Fatal: ${JSON.stringify(arguments)}`);
    }
 
    /**
-    * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
-    * which subsequently returns a Promise.
-    *
-    * @param {object}   e - event data
+    * Post info message.
     */
-   logIn(e)
+   info()
    {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
-
-      const username = this.$(&apos;#login-username&apos;).val();
-      const password = this.$(&apos;#login-password&apos;).val();
-
-      // Dispatch the `app:user:login` event with the username / password and catch any login error. If an error occurs
-      // then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:login&apos;, { username, password }).catch(() =&gt;
-      {
-         this.$(&apos;.login-form .error&apos;).html(&apos;Invalid username or password. Please try again.&apos;).show(&apos;fast&apos;);
-
-         // Hide the error message and enable the login button.
-         setTimeout(() =&gt;
-         {
-            this.$(&apos;.login-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
-
-      // Always set the login button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, true);
+      console.log(`Info: ${JSON.stringify(arguments)}`);
    }
 
    /**
-    * Renders the login view.
+    * Post trace message.
     */
-   render()
+   trace()
    {
-      // Set the `.content` element to the login template.
-      this.$el.html(_.template(loginTmpl));
-
-      // Automatically wires all events specified by `get events()`.
-      this.delegateEvents();
+      console.log(`Trace: ${JSON.stringify(arguments)}`);
+      console.trace();
    }
 
    /**
-    * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
-    * `App.js` which subsequently returns a Promise.
-    *
-    * @param {object}   e - event data
+    * Post warn message.
     */
-   signUp(e)
+   warn()
    {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
-
-      const username = this.$(&apos;#signup-username&apos;).val();
-      const password = this.$(&apos;#signup-password&apos;).val();
-
-      // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
-      // occurs then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:signup&apos;, { username, password }).catch((error) =&gt;
-      {
-         this.$(&apos;.signup-form .error&apos;).html(_.escape(error.message)).show(&apos;fast&apos;);
-
-         // Hide the error message and enable the sign up button.
-         setTimeout(() =&gt;
-         {
-            this.$el.find(&apos;.signup-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
-
-      // Always set the sign up button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, true);
+      console.warn(`Warn: ${JSON.stringify(arguments)}`);
    }
 }</code></pre>
 

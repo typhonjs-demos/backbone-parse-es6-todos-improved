@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../../../">
-  <title data-ice="title">TyphonEvents | typhonjs-backbone-parse-todos API Document</title>
+  <title data-ice="title">TyphonLoggedEvents | typhonjs-backbone-parse-todos API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -74,24 +74,24 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import TyphonEvents from &apos;<span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber20">typhonjs-core-backbone-common/src/TyphonEvents.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import TyphonLoggedEvents from &apos;<span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber23">typhonjs-core-backbone-common/src/TyphonLoggedEvents.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber20">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber23">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">TyphonEvents</h1>
+  <h1 data-ice="name">TyphonLoggedEvents</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Events.js~Events.html">Events</a></span> &#x2192; TyphonEvents</div></div>
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Events.js~Events.html">Events</a></span> &#x2192; <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span> &#x2192; TyphonLoggedEvents</div></div>
+  
   
   
   
@@ -100,7 +100,8 @@
 
   
   
-  <div class="description" data-ice="description"><p>TyphonEvents adds new functionality for trigger events. The following are new trigger mechanisms:</p>
+  <div class="description" data-ice="description"><p>TyphonLoggedEvents posts a message to the <code>logger</code> before invoking the parent TyphonEvents method.</p>
+<p>Adds new functionality for trigger events. The following are new trigger mechanisms:</p>
 <p>Please refer to the Events documentation for all inherited functionality.</p>
 <p><code>triggerDefer</code> - Defers invoking <code>trigger</code>.</p>
 <p><code>triggerFirst</code> - Only invokes the first target matched and passes back any result to the callee.</p>
@@ -120,7 +121,39 @@
 
 
 
-
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-constructor-constructor">constructor</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Constructs TyphonLoggedEvents and sets the default log level to <code>debug</code> and the eventbusName to &apos;unknown`.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 <div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
@@ -137,7 +170,137 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerDefer">triggerDefer</a></span></span><span data-ice="signature">(): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></span>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-getEventbusName">getEventbusName</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Returns the current eventbusName.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-getLogLevel">getLogLevel</a></span></span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Returns the current log level.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-setEventbusName">setEventbusName</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Sets the eventbus name.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-setLogLevel">setLogLevel</a></span></span><span data-ice="signature">(logLevel: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Sets the current log level.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-trigger">trigger</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Posts a log message given the current log level.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-triggerDefer">triggerDefer</a></span></span><span data-ice="signature">(): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span>
         </p>
       </div>
       <div>
@@ -163,14 +326,13 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerFirst">triggerFirst</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-triggerFirst">triggerFirst</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Provides <code>trigger</code> functionality that only invokes the first target matched and passes back any result to
-the callee.</p>
+        <div data-ice="description"><p>Posts a log message given the current log level.</p>
 </div>
       </div>
     </td>
@@ -190,14 +352,13 @@ the callee.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerResults">triggerResults</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;</span>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-triggerResults">triggerResults</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned results from invoked targets in an array and passes
-back this array to the callee.</p>
+        <div data-ice="description"><p>Posts a log message given the current log level.</p>
 </div>
       </div>
     </td>
@@ -217,14 +378,13 @@ back this array to the callee.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerThen">triggerThen</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-triggerThen">triggerThen</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned Promises from invoked targets and returns a
-single Promise generated by <code>Promise.all</code>.</p>
+        <div data-ice="description"><p>Posts a log message given the current log level.</p>
 </div>
       </div>
     </td>
@@ -477,33 +637,190 @@ single Promise generated by <code>Promise.all</code>.</p>
   </tr>
 </tbody>
 </table>
+
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerDefer">triggerDefer</a></span></span><span data-ice="signature">(): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Defers invoking <code>trigger</code>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerFirst">triggerFirst</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Provides <code>trigger</code> functionality that only invokes the first target matched and passes back any result to
+the callee.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerResults">triggerResults</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned results from invoked targets in an array and passes
+back this array to the callee.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerThen">triggerThen</a></span></span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned Promises from invoked targets and returns a
+single Promise generated by <code>Promise.all</code>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
 </div>
 
 
 
-
-
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-triggerDefer">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">triggerDefer</span><span data-ice="signature">(): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></span>
+    <span data-ice="name">constructor</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber27">source</a></span></span>
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber28">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Defers invoking <code>trigger</code>.</p>
+  <div data-ice="description"><p>Constructs TyphonLoggedEvents and sets the default log level to <code>debug</code> and the eventbusName to &apos;unknown`.</p>
+</div>
+
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Events.js~Events.html#instance-constructor-constructor">Events#constructor</a></span></div>
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getEventbusName">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">getEventbusName</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber41">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Returns the current eventbusName.</p>
 </div>
 
   
@@ -515,7 +832,295 @@ single Promise generated by <code>Promise.all</code>.</p>
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></td>
+        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getLogLevel">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">getLogLevel</span><span data-ice="signature">(): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber51">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Returns the current log level.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span> | <span>*</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setEventbusName">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">setEventbusName</span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber61">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Sets the eventbus name.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">name</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The name for this eventbus.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setLogLevel">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">setLogLevel</span><span data-ice="signature">(logLevel: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber71">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Sets the current log level.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">logLevel</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The log level to set.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-trigger">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">trigger</span><span data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber99">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Posts a log message given the current log level.</p>
+<p>Trigger callbacks for the given event, or space-delimited list of events. Subsequent arguments to trigger will be
+passed along to the event callbacks.</p>
+</div>
+
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Events.js~Events.html#instance-method-trigger">Events#trigger</a></span></div>
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">name</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Event name(s)</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://backbonejs.org/#Events-trigger">http://backbonejs.org/#Events-trigger</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-triggerDefer">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">triggerDefer</span><span data-ice="signature">(): <span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber81">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Defers invoking <code>trigger</code>.</p>
+</div>
+
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerDefer">TyphonEvents#triggerDefer</a></span></div>
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></td>
         
       </tr>
     </table>
@@ -547,18 +1152,19 @@ single Promise generated by <code>Promise.all</code>.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber117">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Provides <code>trigger</code> functionality that only invokes the first target matched and passes back any result to
+  <div data-ice="description"><p>Posts a log message given the current log level.</p>
+<p>Provides <code>trigger</code> functionality that only invokes the first target matched and passes back any result to
 the callee.</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerFirst">TyphonEvents#triggerFirst</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -616,18 +1222,19 @@ the callee.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned results from invoked targets in an array and passes
+  <div data-ice="description"><p>Posts a log message given the current log level.</p>
+<p>Provides <code>trigger</code> functionality, but collects any returned results from invoked targets in an array and passes
 back this array to the callee.</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerResults">TyphonEvents#triggerResults</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -685,19 +1292,20 @@ back this array to the callee.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js.html#lineNumber78">source</a></span></span>
+      <span data-ice="source"><span><a href="file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js.html#lineNumber160">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Provides <code>trigger</code> functionality, but collects any returned Promises from invoked targets and returns a
+  <div data-ice="description"><p>Posts a log message given the current log level.</p>
+<p>Provides <code>trigger</code> functionality, but collects any returned Promises from invoked targets and returns a
 single Promise generated by <code>Promise.all</code>. This is a very useful mechanism to invoke asynchronous operations
 over an eventbus.</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerThen">TyphonEvents#triggerThen</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js | typhonjs-backbone-parse-todos API Document</title>
+  <base data-ice="baseUrl" href="../../../../../../../">
+  <title data-ice="title">typhonjs-core-backbone-common/src/TyphonLoggedEvents.js | typhonjs-backbone-parse-todos API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -73,126 +73,173 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">typhonjs-core-backbone-common/src/TyphonLoggedEvents.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
-import _                from &apos;underscore&apos;;
-import Backbone         from &apos;backbone&apos;;
-import eventbus         from &apos;mainEventbus&apos;;
+import TyphonEvents  from &apos;./TyphonEvents.js&apos;;
 
-import loginTmpl        from &apos;pathSite/templates/login.html!text&apos;;
+import logger        from &apos;logger&apos;;
 
 /**
- * Provides a `Backbone.View` allowing a user to login or sign up.
+ * TyphonLoggedEvents posts a message to the `logger` before invoking the parent TyphonEvents method.
+ *
+ * Adds new functionality for trigger events. The following are new trigger mechanisms:
+ *
+ * Please refer to the Events documentation for all inherited functionality.
+ *
+ * `triggerDefer` - Defers invoking `trigger`.
+ *
+ * `triggerFirst` - Only invokes the first target matched and passes back any result to the callee.
+ *
+ * `triggerResults` - Invokes all targets matched and passes back an array of results in an array to the callee.
+ *
+ * `triggerThen` - Invokes all targets matched and adds any returned promises through Promise.all which returns
+ *  a single promise to the callee.
  */
-export default class LogInView extends Backbone.View
+export default class TyphonLoggedEvents extends TyphonEvents
 {
    /**
-    * Delegated events for logging in and signing up.
-    *
-    * @returns {object}
-    */
-   get events()
-   {
-      return {
-         &apos;submit form.login-form&apos;: &apos;logIn&apos;,
-         &apos;submit form.signup-form&apos;: &apos;signUp&apos;
-      };
-   }
-
-   /**
-    * Sets the element this view is associated with to `.content`.
+    * Constructs TyphonLoggedEvents and sets the default log level to `debug` and the eventbusName to &apos;unknown`.
     */
    constructor()
    {
-      super({ el: &apos;.content&apos; });
+      super();
+
+      this._logLevel = &apos;debug&apos;;
+      this._eventbusName = &apos;unknown&apos;;
    }
 
    /**
-    * Binds `this` to the methods specified and renders the view.
-    */
-   initialize()
-   {
-      // Binds the `this` context to all methods such that it is accessible via Backbone event callbacks.
-      _.bindAll(this, &apos;logIn&apos;, &apos;signUp&apos;);
-
-      this.render();
-   }
-
-   /**
-    * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
-    * which subsequently returns a Promise.
+    * Returns the current eventbusName.
     *
-    * @param {object}   e - event data
+    * @returns {string|*}
     */
-   logIn(e)
+   getEventbusName()
    {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
-
-      const username = this.$(&apos;#login-username&apos;).val();
-      const password = this.$(&apos;#login-password&apos;).val();
-
-      // Dispatch the `app:user:login` event with the username / password and catch any login error. If an error occurs
-      // then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:login&apos;, { username, password }).catch(() =&gt;
-      {
-         this.$(&apos;.login-form .error&apos;).html(&apos;Invalid username or password. Please try again.&apos;).show(&apos;fast&apos;);
-
-         // Hide the error message and enable the login button.
-         setTimeout(() =&gt;
-         {
-            this.$(&apos;.login-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
-
-      // Always set the login button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, true);
+      return this._eventbusName;
    }
 
    /**
-    * Renders the login view.
-    */
-   render()
-   {
-      // Set the `.content` element to the login template.
-      this.$el.html(_.template(loginTmpl));
-
-      // Automatically wires all events specified by `get events()`.
-      this.delegateEvents();
-   }
-
-   /**
-    * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
-    * `App.js` which subsequently returns a Promise.
+    * Returns the current log level.
     *
-    * @param {object}   e - event data
+    * @returns {string|*}
     */
-   signUp(e)
+   getLogLevel()
    {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
+      return this._logLevel;
+   }
 
-      const username = this.$(&apos;#signup-username&apos;).val();
-      const password = this.$(&apos;#signup-password&apos;).val();
+   /**
+    * Sets the eventbus name.
+    *
+    * @param {string}   name - The name for this eventbus.
+    */
+   setEventbusName(name)
+   {
+      this._eventbusName = name;
+   }
 
-      // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
-      // occurs then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:signup&apos;, { username, password }).catch((error) =&gt;
-      {
-         this.$(&apos;.signup-form .error&apos;).html(_.escape(error.message)).show(&apos;fast&apos;);
+   /**
+    * Sets the current log level.
+    *
+    * @param {string}   logLevel - The log level to set.
+    */
+   setLogLevel(logLevel)
+   {
+      this._logLevel = logLevel;
+   }
 
-         // Hide the error message and enable the sign up button.
-         setTimeout(() =&gt;
-         {
-            this.$el.find(&apos;.signup-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
+   /**
+    * Defers invoking `trigger`.
+    *
+    * @returns {TyphonLoggedEvents}
+    */
+   triggerDefer()
+   {
+      setTimeout(() =&gt; { this.trigger(...arguments); }, 0);
 
-      // Always set the sign up button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, true);
+      return this;
+   }
+
+   /**
+    * Posts a log message given the current log level.
+    *
+    * Trigger callbacks for the given event, or space-delimited list of events. Subsequent arguments to trigger will be
+    * passed along to the event callbacks.
+    *
+    * @see http://backbonejs.org/#Events-trigger
+    *
+    * @param {string}   name  - Event name(s)
+    * @returns {TyphonLoggedEvents}
+    */
+   trigger(name)
+   {
+      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+
+      logger.post(this._logLevel, { busName: this._eventbusName, triggerType: &apos;trigger&apos;, eventName: name, params });
+
+      return super.trigger(...arguments);
+   }
+
+   /**
+    * Posts a log message given the current log level.
+    *
+    * Provides `trigger` functionality that only invokes the first target matched and passes back any result to
+    * the callee.
+    *
+    * @param {string}   name  - Event name(s)
+    * @returns {*}
+    */
+   triggerFirst(name)
+   {
+      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+
+      const results = super.triggerFirst(...arguments);
+
+      logger.post(this._logLevel,
+       { busName: this._eventbusName, triggerType: &apos;triggerFirst&apos;, eventName: name, params, results });
+
+      return results;
+   }
+
+   /**
+    * Posts a log message given the current log level.
+    *
+    * Provides `trigger` functionality, but collects any returned results from invoked targets in an array and passes
+    * back this array to the callee.
+    *
+    * @param {string}   name  - Event name(s)
+    * @returns {Array&lt;*&gt;}
+    */
+   triggerResults(name)
+   {
+      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+
+      const results = super.triggerResults(...arguments);
+
+      logger.post(this._logLevel,
+       { busName: this._eventbusName, triggerType: &apos;triggerResults&apos;, eventName: name, params, results });
+
+      return results;
+   }
+
+   /**
+    * Posts a log message given the current log level.
+    *
+    * Provides `trigger` functionality, but collects any returned Promises from invoked targets and returns a
+    * single Promise generated by `Promise.all`. This is a very useful mechanism to invoke asynchronous operations
+    * over an eventbus.
+    *
+    * @param {string}   name  - Event name(s)
+    * @returns {Promise}
+    */
+   triggerThen(name)
+   {
+      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+
+      logger.post(this._logLevel, { busName: this._eventbusName, triggerType: &apos;triggerThen&apos;, eventName: name, params });
+
+      return super.triggerThen(...arguments);
    }
 }</code></pre>
 

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js | typhonjs-backbone-parse-todos API Document</title>
+  <base data-ice="baseUrl" href="../../../../../../../">
+  <title data-ice="title">(typhonjs-core-logging):<br>logger/src/Logger.js | typhonjs-backbone-parse-todos API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -73,126 +73,287 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">(typhonjs-core-logging):<br>logger/src/Logger.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
-import _                from &apos;underscore&apos;;
-import Backbone         from &apos;backbone&apos;;
-import eventbus         from &apos;mainEventbus&apos;;
+const s_ALL_LOGGING_ENABLED = true;
 
-import loginTmpl        from &apos;pathSite/templates/login.html!text&apos;;
+const s_LOG_LEVELS =
+{
+   off: 7,
+   fatal: 6,
+   error: 5,
+   warn: 4,
+   info: 3,
+   debug: 2,
+   trace: 1,
+   all: 0
+};
+
+const s_IS_LEVEL_ENABLED = (currentLevel, requestedLevel) =&gt;
+{
+   return currentLevel &lt;= requestedLevel &amp;&amp; s_ALL_LOGGING_ENABLED;
+};
+
+/* eslint-disable no-console */
 
 /**
- * Provides a `Backbone.View` allowing a user to login or sign up.
+ * Logger.js -- Provides dispatch to logging plugins. Logging can be turned off via invoking &quot;setLogLevel(&apos;off&apos;)&quot;.
+ * By default all logging is enabled and the context is set to `default`. Add one or more logger plugins by invoking
+ * the `setLogger` method. Change the logging context by invoking `setContext`.
+ *
+ * The following log levels are available in order of precedence: `off, fatal, error, warn, info, debug, trace, all`.
  */
-export default class LogInView extends Backbone.View
+export default class Logger
 {
    /**
-    * Delegated events for logging in and signing up.
-    *
-    * @returns {object}
-    */
-   get events()
-   {
-      return {
-         &apos;submit form.login-form&apos;: &apos;logIn&apos;,
-         &apos;submit form.signup-form&apos;: &apos;signUp&apos;
-      };
-   }
-
-   /**
-    * Sets the element this view is associated with to `.content`.
+    * Create the Logger with default values and all logging enabled.
     */
    constructor()
    {
-      super({ el: &apos;.content&apos; });
+      this._context = &apos;default&apos;;
+      this._logLevel = s_LOG_LEVELS[&apos;all&apos;];
+      this._loggerMap = new Map();
    }
 
    /**
-    * Binds `this` to the methods specified and renders the view.
+    * Dispatch to the `logger-&gt;debug` if it exists and the log level is enabled.
     */
-   initialize()
+   debug()
    {
-      // Binds the `this` context to all methods such that it is accessible via Backbone event callbacks.
-      _.bindAll(this, &apos;logIn&apos;, &apos;signUp&apos;);
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;debug&apos;]);
+      const logger = this._loggerMap.get(this._context);
 
-      this.render();
-   }
-
-   /**
-    * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
-    * which subsequently returns a Promise.
-    *
-    * @param {object}   e - event data
-    */
-   logIn(e)
-   {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
-
-      const username = this.$(&apos;#login-username&apos;).val();
-      const password = this.$(&apos;#login-password&apos;).val();
-
-      // Dispatch the `app:user:login` event with the username / password and catch any login error. If an error occurs
-      // then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:login&apos;, { username, password }).catch(() =&gt;
+      if (enabled &amp;&amp; logger &amp;&amp; logger.debug)
       {
-         this.$(&apos;.login-form .error&apos;).html(&apos;Invalid username or password. Please try again.&apos;).show(&apos;fast&apos;);
-
-         // Hide the error message and enable the login button.
-         setTimeout(() =&gt;
-         {
-            this.$(&apos;.login-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
-
-      // Always set the login button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, true);
+         logger.debug(...arguments);
+      }
    }
 
    /**
-    * Renders the login view.
+    * Dispatch to the `logger-&gt;error` if it exists and the log level is enabled.
     */
-   render()
+   error()
    {
-      // Set the `.content` element to the login template.
-      this.$el.html(_.template(loginTmpl));
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;error&apos;]);
+      const logger = this._loggerMap.get(this._context);
 
-      // Automatically wires all events specified by `get events()`.
-      this.delegateEvents();
-   }
-
-   /**
-    * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
-    * `App.js` which subsequently returns a Promise.
-    *
-    * @param {object}   e - event data
-    */
-   signUp(e)
-   {
-      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
-      e.preventDefault();
-
-      const username = this.$(&apos;#signup-username&apos;).val();
-      const password = this.$(&apos;#signup-password&apos;).val();
-
-      // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
-      // occurs then briefly show the error message.
-      eventbus.triggerThen(&apos;app:user:signup&apos;, { username, password }).catch((error) =&gt;
+      if (enabled &amp;&amp; logger)
       {
-         this.$(&apos;.signup-form .error&apos;).html(_.escape(error.message)).show(&apos;fast&apos;);
+         logger.error(...arguments);
+      }
+   }
 
-         // Hide the error message and enable the sign up button.
-         setTimeout(() =&gt;
+   /**
+    * Dispatch to the `logger-&gt;fatal` if it exists and the log level is enabled.
+    */
+   fatal()
+   {
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;fatal&apos;]);
+      const logger = this._loggerMap.get(this._context);
+
+      if (enabled &amp;&amp; logger)
+      {
+         logger.fatal(...arguments);
+      }
+   }
+
+   /**
+    * Get the current context.
+    *
+    * @returns {string|*}
+    */
+   getContext()
+   {
+      return this._context;
+   }
+
+   /**
+    * Get the logger by the given context.
+    *
+    * @param {*}  context - the context to use for logger retrieval.
+    * @returns {*}
+    */
+   getLogger(context)
+   {
+      return this._loggerMap.get(context);
+   }
+
+   /**
+    * Returns whether a logger is defined by the given context.
+    *
+    * @param {*}  context - the context to check.
+    * @returns {*}
+    */
+   hasContext(context)
+   {
+      return this._loggerMap.get(context) !== undefined;
+   }
+
+   /**
+    * Returns whether the given log level is enabled.
+    *
+    * @param {string}   level - log level
+    * @returns {boolean}
+    */
+   isLevelEnabled(level)
+   {
+      const requestedLevel = s_LOG_LEVELS[level];
+
+      if (typeof requestedLevel === &apos;undefined&apos; || requestedLevel === null)
+      {
+         console.log(`isLevelEnabled - unknown log level: ${level}`);
+         return false;
+      }
+
+      return s_IS_LEVEL_ENABLED(this._logLevel, requestedLevel);
+   }
+
+   /**
+    * Dispatch to the `logger-&gt;info` if it exists and the log level is enabled.
+    */
+   info()
+   {
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;info&apos;]);
+      const logger = this._loggerMap.get(this._context);
+
+      if (enabled &amp;&amp; logger)
+      {
+         logger.info(...arguments);
+      }
+   }
+
+   /**
+    * Posts a log message given a log level and parameters.
+    *
+    * @param {string}   level - log level
+    * @param {*}        params - log message parameters to forward onto dispatched method.
+    */
+   post(level, ...params)
+   {
+      if (typeof s_LOG_LEVELS[level] === &apos;undefined&apos;)
+      {
+         console.log(`post - unknown log level: ${level}`);
+         return;
+      }
+
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;info&apos;]);
+      const logger = this._loggerMap.get(this._context);
+
+      if (enabled &amp;&amp; logger)
+      {
+         switch (level)
          {
-            this.$el.find(&apos;.signup-form .error&apos;).hide(&apos;fast&apos;);
-            this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, false);
-         }, 3000);
-      });
+            case &apos;fatal&apos;:
+               logger.fatal(...params);
+               break;
 
-      // Always set the sign up button to disabled. If there is an error the button is enabled again.
-      this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, true);
+            case &apos;error&apos;:
+               logger.error(...params);
+               break;
+
+            case &apos;warn&apos;:
+               logger.warn(...params);
+               break;
+
+            case &apos;info&apos;:
+               logger.info(...params);
+               break;
+
+            case &apos;debug&apos;:
+               logger.debug(...params);
+               break;
+
+            case &apos;trace&apos;:
+               logger.trace(...params);
+               break;
+         }
+      }
+   }
+
+   /**
+    * Removes the logger by the given context.
+    *
+    * @param {*}  context - The context to check.
+    */
+   removeLogger(context)
+   {
+      this._loggerMap.delete(context);
+   }
+
+   /**
+    * Sets the current context
+    *
+    * @param {*}  context - The context to set.
+    * @returns {boolean}
+    */
+   setContext(context)
+   {
+      if (typeof context === &apos;undefined&apos; || context === null)
+      {
+         console.log(`setContext - context is not defined or null: ${context}`);
+         return false;
+      }
+
+      this._context = context;
+   }
+
+   /**
+    * Sets the current log level.
+    *
+    * @param {string}   level - log level
+    * @returns {boolean}
+    */
+   setLogLevel(level)
+   {
+      const requestedLevel = s_LOG_LEVELS[level];
+
+      if (typeof requestedLevel === &apos;undefined&apos; || requestedLevel === null)
+      {
+         console.log(`setLogLevel - unknown log level: ${level}`);
+         return false;
+      }
+
+      this._logLevel = requestedLevel;
+   }
+
+   /**
+    * Sets the logger for the give context.
+    *
+    * @param {*}  context - The context to set.
+    * @param {*}  logger - The logger to set.
+    */
+   setLogger(context, logger)
+   {
+      this._loggerMap.set(context, logger);
+   }
+
+   /**
+    * Dispatch to the `logger-&gt;trace` if it exists and the log level is enabled.
+    */
+   trace()
+   {
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;trace&apos;]);
+      const logger = this._loggerMap.get(this._context);
+
+      if (enabled &amp;&amp; logger)
+      {
+         logger.trace(...arguments);
+      }
+   }
+
+   /**
+    * Dispatch to the `logger-&gt;warn` if it exists and the log level is enabled.
+    */
+   warn()
+   {
+      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;warn&apos;]);
+      const logger = this._loggerMap.get(this._context);
+
+      if (enabled &amp;&amp; logger)
+      {
+         logger.warn(...arguments);
+      }
    }
 }</code></pre>
 
