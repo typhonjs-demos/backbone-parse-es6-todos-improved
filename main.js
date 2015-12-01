@@ -7,8 +7,12 @@
 
 'use strict';
 
-import            'parseinit';
-import App  from  'pathSite/js/App.js';
+import              'parseinit';
+import App     from 'pathSite/js/App.js';
+
+// Uncomment to turn off eventbus logging.
+// import logger  from 'logger';
+// logger.setLogLevel('off');
 
 // Create and initialize the app
 new App();

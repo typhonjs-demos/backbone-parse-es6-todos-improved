@@ -16,7 +16,8 @@ System.config(
 {
    map:
    {
-      'mainEventbus': pathBackboneCommon + '/src/mainEventbus.js',
+//      'mainEventbus': pathBackboneCommon + '/src/mainEventbus.js',       // This is the normal eventbus.
+      'mainEventbus': pathBackboneCommon + '/src/mainLoggedEventbus.js',   // This is the logging enabled eventbus.
       'parseconfig': 'config/production-config.js',
       'pathConfig': 'config',
       'pathSite': 'site'

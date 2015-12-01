@@ -12,6 +12,7 @@
     "dependencies": {
       "backbone": "github:typhonjs/backbone-parse-es6@master",
       "jquery": "github:typhonjs/zepto@master",
+      "logger": "github:typhonjs/typhonjs-core-logging@master",
       "parse": "npm:parse@^1.6.9",
       "parseinit": "github:typhonjs/typhonjs-core-parse-init@master",
       "text": "github:systemjs/plugin-text@^0.0.2",
