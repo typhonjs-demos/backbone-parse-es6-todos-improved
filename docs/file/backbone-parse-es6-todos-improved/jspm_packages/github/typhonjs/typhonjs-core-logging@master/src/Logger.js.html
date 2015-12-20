@@ -59,6 +59,9 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-query/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-query@master/src/BackboneQuery.js~BackboneQuery.html">BackboneQuery</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">(typhonjs-core-logging):<br>logger/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html">ConsoleLogger</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-utils/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html">MultiMap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html">Utils</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-btoa">btoa</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/collections</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/collections/todoList.js~TodoList.html">TodoList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-todoList">todoList</a></span></span></li>
@@ -92,7 +95,7 @@ const s_LOG_LEVELS =
 
 const s_IS_LEVEL_ENABLED = (currentLevel, requestedLevel) =&gt;
 {
-   return currentLevel &lt;= requestedLevel &amp;&amp; s_ALL_LOGGING_ENABLED;
+   return Number.isInteger(currentLevel) &amp;&amp; currentLevel &lt;= requestedLevel &amp;&amp; s_ALL_LOGGING_ENABLED;
 };
 
 /* eslint-disable no-console */
@@ -112,8 +115,10 @@ export default class Logger
    constructor()
    {
       this._context = &apos;default&apos;;
-      this._logLevel = s_LOG_LEVELS[&apos;all&apos;];
+      this._logLevelMap = new Map();
       this._loggerMap = new Map();
+
+      this.setLogLevel(&apos;all&apos;);
    }
 
    /**
@@ -121,7 +126,7 @@ export default class Logger
     */
    debug()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;debug&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;debug&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger &amp;&amp; logger.debug)
@@ -135,7 +140,7 @@ export default class Logger
     */
    error()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;error&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;error&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)
@@ -149,7 +154,7 @@ export default class Logger
     */
    fatal()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;fatal&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;fatal&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)
@@ -166,6 +171,16 @@ export default class Logger
    getContext()
    {
       return this._context;
+   }
+
+   /**
+    * Get the log level for the current context.
+    *
+    * @returns {*}
+    */
+   getLogLevel()
+   {
+      return this._logLevelMap.get(this._context);
    }
 
    /**
@@ -206,7 +221,7 @@ export default class Logger
          return false;
       }
 
-      return s_IS_LEVEL_ENABLED(this._logLevel, requestedLevel);
+      return s_IS_LEVEL_ENABLED(this.getLogLevel(), requestedLevel);
    }
 
    /**
@@ -214,7 +229,7 @@ export default class Logger
     */
    info()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;info&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;info&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)
@@ -237,7 +252,7 @@ export default class Logger
          return;
       }
 
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;info&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;info&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)
@@ -284,18 +299,18 @@ export default class Logger
    /**
     * Sets the current context
     *
-    * @param {*}  context - The context to set.
+    * @param {string}   context - The context to set.
     * @returns {boolean}
     */
    setContext(context)
    {
-      if (typeof context === &apos;undefined&apos; || context === null)
+      if (typeof context !== &apos;string&apos;)
       {
-         console.log(`setContext - context is not defined or null: ${context}`);
-         return false;
+         throw new TypeError(`setContext - context is not a string: ${context}`);
       }
 
       this._context = context;
+      return true;
    }
 
    /**
@@ -314,18 +329,29 @@ export default class Logger
          return false;
       }
 
-      this._logLevel = requestedLevel;
+      this._logLevelMap.set(this._context, requestedLevel);
+      return true;
    }
 
    /**
     * Sets the logger for the give context.
     *
-    * @param {*}  context - The context to set.
-    * @param {*}  logger - The logger to set.
+    * @param {string}   context - The context to set.
+    * @param {*}        logger - The logger to set.
     */
    setLogger(context, logger)
    {
+      if (typeof context !== &apos;string&apos;)
+      {
+         throw new TypeError(`setLogger - context is not a string: ${context}`);
+      }
+
       this._loggerMap.set(context, logger);
+
+      if (!this._logLevelMap.has(context))
+      {
+         this._logLevelMap.set(context, s_LOG_LEVELS[&apos;all&apos;]);
+      }
    }
 
    /**
@@ -333,7 +359,7 @@ export default class Logger
     */
    trace()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;trace&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;trace&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)
@@ -347,7 +373,7 @@ export default class Logger
     */
    warn()
    {
-      const enabled = s_IS_LEVEL_ENABLED(this._logLevel, s_LOG_LEVELS[&apos;warn&apos;]);
+      const enabled = s_IS_LEVEL_ENABLED(this.getLogLevel(), s_LOG_LEVELS[&apos;warn&apos;]);
       const logger = this._loggerMap.get(this._context);
 
       if (enabled &amp;&amp; logger)

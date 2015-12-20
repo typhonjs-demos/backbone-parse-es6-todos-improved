@@ -102,6 +102,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "typhonjs-core-utils/src/multimap.js~multimap",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html",
+    "<span>MultiMap</span> <span class=\"search-result-import-path\">typhonjs-core-utils/src/MultiMap.js</span>",
+    "class"
+  ],
+  [
     "backbone/src/parsecollection.js~parsecollection",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-parse-es6@master/src/ParseCollection.js~ParseCollection.html",
     "<span>ParseCollection</span> <span class=\"search-result-import-path\">backbone/src/ParseCollection.js</span>",
@@ -144,6 +150,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "typhonjs-core-utils/src/utils.js~utils",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html",
+    "<span>Utils</span> <span class=\"search-result-import-path\">typhonjs-core-utils/src/Utils.js</span>",
+    "class"
+  ],
+  [
     "backbone-es6/src/view.js~view",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/View.js~View.html",
     "<span>View</span> <span class=\"search-result-import-path\">backbone-es6/src/View.js</span>",
@@ -153,6 +165,12 @@ window.esdocSearchIndex = [
     "typhonjs-backbone-parse-todos/site/js/models/appstate.js~appstate",
     "variable/index.html#static-variable-appState",
     "<span>appState</span> <span class=\"search-result-import-path\">typhonjs-backbone-parse-todos/site/js/models/appState.js</span>",
+    "variable"
+  ],
+  [
+    "typhonjs-core-utils/src/btoa.js~btoa",
+    "variable/index.html#static-variable-btoa",
+    "<span>btoa</span> <span class=\"search-result-import-path\">typhonjs-core-utils/src/btoa.js</span>",
     "variable"
   ],
   [
@@ -1692,6 +1710,18 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonevents.js~typhonevents#geteventbusname",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-getEventbusName",
+    "typhonjs-core-backbone-common/src/TyphonEvents.js~TyphonEvents#getEventbusName",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonevents.js~typhonevents#seteventbusname",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-setEventbusName",
+    "typhonjs-core-backbone-common/src/TyphonEvents.js~TyphonEvents#setEventbusName",
+    "method"
+  ],
+  [
     "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonevents.js~typhonevents#triggerdefer",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonEvents.js~TyphonEvents.html#instance-method-triggerDefer",
     "typhonjs-core-backbone-common/src/TyphonEvents.js~TyphonEvents#triggerDefer",
@@ -1728,9 +1758,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonloggedevents.js~typhonloggedevents#geteventbusname",
-    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-getEventbusName",
-    "typhonjs-core-backbone-common/src/TyphonLoggedEvents.js~TyphonLoggedEvents#getEventbusName",
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonloggedevents.js~typhonloggedevents#geteventscrubber",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-getEventScrubber",
+    "typhonjs-core-backbone-common/src/TyphonLoggedEvents.js~TyphonLoggedEvents#getEventScrubber",
     "method"
   ],
   [
@@ -1740,9 +1770,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonloggedevents.js~typhonloggedevents#seteventbusname",
-    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-setEventbusName",
-    "typhonjs-core-backbone-common/src/TyphonLoggedEvents.js~TyphonLoggedEvents#setEventbusName",
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/typhonloggedevents.js~typhonloggedevents#seteventscrubber",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-common@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html#instance-method-setEventScrubber",
+    "typhonjs-core-backbone-common/src/TyphonLoggedEvents.js~TyphonLoggedEvents#setEventScrubber",
     "method"
   ],
   [
@@ -1842,6 +1872,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/consolelogger.js~consolelogger#constructor",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html#instance-constructor-constructor",
+    "logger/src/ConsoleLogger.js~ConsoleLogger#constructor",
+    "method"
+  ],
+  [
     "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/consolelogger.js~consolelogger#debug",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html#instance-method-debug",
     "logger/src/ConsoleLogger.js~ConsoleLogger#debug",
@@ -1860,9 +1896,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/consolelogger.js~consolelogger#getserializer",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html#instance-method-getSerializer",
+    "logger/src/ConsoleLogger.js~ConsoleLogger#getSerializer",
+    "method"
+  ],
+  [
     "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/consolelogger.js~consolelogger#info",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html#instance-method-info",
     "logger/src/ConsoleLogger.js~ConsoleLogger#info",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/consolelogger.js~consolelogger#setserializer",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html#instance-method-setSerializer",
+    "logger/src/ConsoleLogger.js~ConsoleLogger#setSerializer",
     "method"
   ],
   [
@@ -1911,6 +1959,12 @@ window.esdocSearchIndex = [
     "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/logger.js~logger#getcontext",
     "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html#instance-method-getContext",
     "logger/src/Logger.js~Logger#getContext",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/logger.js~logger#getloglevel",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html#instance-method-getLogLevel",
+    "logger/src/Logger.js~Logger#getLogLevel",
     "method"
   ],
   [
@@ -1989,6 +2043,102 @@ window.esdocSearchIndex = [
     "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-parse-init@master/src/lifecycle/parseinitialize.js",
     "file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-parse-init@master/src/lifecycle/ParseInitialize.js.html",
     "parseinit/src/lifecycle/ParseInitialize.js",
+    "file"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js",
+    "file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js.html",
+    "typhonjs-core-utils/src/MultiMap.js",
+    "file"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#clear",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-clear",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#clear",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#constructor",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-constructor-constructor",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#constructor",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#delete",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-delete",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#delete",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#entries",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-entries",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#entries",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#get",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-get",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#get",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#has",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-has",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#has",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#ismap",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-isMap",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#isMap",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#keys",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-keys",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#keys",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#set",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-set",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#set",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#size",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-size",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#size",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/multimap.js~multimap#values",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html#instance-method-values",
+    "typhonjs-core-utils/src/MultiMap.js~MultiMap#values",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/utils.js",
+    "file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js.html",
+    "typhonjs-core-utils/src/Utils.js",
+    "file"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/utils.js~utils.isnullorundef",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html#static-method-isNullOrUndef",
+    "typhonjs-core-utils/src/Utils.js~Utils.isNullOrUndef",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/utils.js~utils.istypeof",
+    "class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html#static-method-isTypeOf",
+    "typhonjs-core-utils/src/Utils.js~Utils.isTypeOf",
+    "method"
+  ],
+  [
+    "backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/btoa.js",
+    "file/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/btoa.js.html",
+    "typhonjs-core-utils/src/btoa.js",
     "file"
   ],
   [

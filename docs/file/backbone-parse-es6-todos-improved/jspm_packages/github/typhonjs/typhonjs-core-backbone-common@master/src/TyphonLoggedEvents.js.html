@@ -59,6 +59,9 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-query/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-query@master/src/BackboneQuery.js~BackboneQuery.html">BackboneQuery</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">(typhonjs-core-logging):<br>logger/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html">ConsoleLogger</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-utils/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/MultiMap.js~MultiMap.html">MultiMap</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html">Utils</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-btoa">btoa</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/collections</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/collections/todoList.js~TodoList.html">TodoList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-todoList">todoList</a></span></span></li>
@@ -76,9 +79,13 @@
 <div class="content" data-ice="content"><h1 data-ice="title">typhonjs-core-backbone-common/src/TyphonLoggedEvents.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
 
+import _             from &apos;underscore&apos;;
+
 import TyphonEvents  from &apos;./TyphonEvents.js&apos;;
 
-import logger        from &apos;logger&apos;;
+import logger        from &apos;typhonjs-core-logging&apos;;
+
+import Utils         from &apos;typhonjs-core-utils/src/Utils.js&apos;;
 
 /**
  * TyphonLoggedEvents posts a message to the `logger` before invoking the parent TyphonEvents method.
@@ -110,13 +117,13 @@ export default class TyphonLoggedEvents extends TyphonEvents
    }
 
    /**
-    * Returns the current eventbusName.
+    * Returns the any event scrubber function.
     *
-    * @returns {string|*}
+    * @returns {function}
     */
-   getEventbusName()
+   getEventScrubber()
    {
-      return this._eventbusName;
+      return this._eventScrubber;
    }
 
    /**
@@ -130,13 +137,28 @@ export default class TyphonLoggedEvents extends TyphonEvents
    }
 
    /**
-    * Sets the eventbus name.
+    * Sets the current event scrubber. The event scrubber is run against the event data about to be logged. It should
     *
-    * @param {string}   name - The name for this eventbus.
+    *
+    * @param {function} eventScrubber - A function
     */
-   setEventbusName(name)
+   setEventScrubber(eventScrubber)
    {
-      this._eventbusName = name;
+      if (!_.isFunction(eventScrubber))
+      {
+         if (Utils.isNullOrUndef(eventScrubber))
+         {
+            this._eventScrubber = undefined;
+         }
+         else
+         {
+            throw new TypeError(&apos;setEventScrubber - `eventScrubber` is not a function.&apos;);
+         }
+      }
+      else
+      {
+         this._eventScrubber = eventScrubber;
+      }
    }
 
    /**
@@ -174,9 +196,11 @@ export default class TyphonLoggedEvents extends TyphonEvents
     */
    trigger(name)
    {
-      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+      const params = arguments.length &gt; 1 ? _.map(Array.prototype.slice.call(arguments, 1), _.clone) : [];
 
-      logger.post(this._logLevel, { busName: this._eventbusName, triggerType: &apos;trigger&apos;, eventName: name, params });
+      const logData = { busName: this._eventbusName, triggerType: &apos;trigger&apos;, eventName: name, params };
+
+      logger.post(this._logLevel, !Utils.isNullOrUndef(this._eventScrubber) ? this._eventScrubber(logData) : logData);
 
       return super.trigger(...arguments);
    }
@@ -192,12 +216,13 @@ export default class TyphonLoggedEvents extends TyphonEvents
     */
    triggerFirst(name)
    {
-      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+      const params = arguments.length &gt; 1 ? _.map(Array.prototype.slice.call(arguments, 1), _.clone) : [];
 
       const results = super.triggerFirst(...arguments);
 
-      logger.post(this._logLevel,
-       { busName: this._eventbusName, triggerType: &apos;triggerFirst&apos;, eventName: name, params, results });
+      const logData = { busName: this._eventbusName, triggerType: &apos;triggerFirst&apos;, eventName: name, params, results };
+
+      logger.post(this._logLevel, !Utils.isNullOrUndef(this._eventScrubber) ? this._eventScrubber(logData) : logData);
 
       return results;
    }
@@ -213,12 +238,13 @@ export default class TyphonLoggedEvents extends TyphonEvents
     */
    triggerResults(name)
    {
-      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+      const params = arguments.length &gt; 1 ? _.map(Array.prototype.slice.call(arguments, 1), _.clone) : [];
 
       const results = super.triggerResults(...arguments);
 
-      logger.post(this._logLevel,
-       { busName: this._eventbusName, triggerType: &apos;triggerResults&apos;, eventName: name, params, results });
+      const logData = { busName: this._eventbusName, triggerType: &apos;triggerResults&apos;, eventName: name, params, results };
+
+      logger.post(this._logLevel, !Utils.isNullOrUndef(this._eventScrubber) ? this._eventScrubber(logData) : logData);
 
       return results;
    }
@@ -235,9 +261,11 @@ export default class TyphonLoggedEvents extends TyphonEvents
     */
    triggerThen(name)
    {
-      const params = arguments.length &gt; 1 ? Array.prototype.slice.call(arguments, 1) : undefined;
+      const params = arguments.length &gt; 1 ? _.map(Array.prototype.slice.call(arguments, 1), _.clone) : [];
 
-      logger.post(this._logLevel, { busName: this._eventbusName, triggerType: &apos;triggerThen&apos;, eventName: name, params });
+      const logData = { busName: this._eventbusName, triggerType: &apos;triggerThen&apos;, eventName: name, params };
+
+      logger.post(this._logLevel, !Utils.isNullOrUndef(this._eventScrubber) ? this._eventScrubber(logData) : logData);
 
       return super.triggerThen(...arguments);
    }
