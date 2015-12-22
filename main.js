@@ -11,7 +11,7 @@ import              'parseinit';
 import App     from 'pathSite/js/App.js';
 
 // Uncomment to turn off eventbus logging.
-// import logger  from 'logger';
+// import logger  from 'typhonjs-core-logging';
 // logger.setLogLevel('off');
 
 // Create and initialize the app
