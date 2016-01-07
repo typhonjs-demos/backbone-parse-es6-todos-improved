@@ -10,18 +10,18 @@
   },
   "jspm": {
     "dependencies": {
-      "backbone": "github:typhonjs/backbone-parse-es6@master",
+      "backbone": "github:typhonjs-parse/backbone-parse-es6@master",
       "jquery": "github:typhonjs/zepto@master",
-      "parse": "npm:parse@^1.6.13",
-      "parseinit": "github:typhonjs/typhonjs-core-parse-init@master",
+      "parse": "npm:parse@^1.6.14",
       "text": "github:systemjs/plugin-text@^0.0.2",
       "typhonjs-core-backbone-events-logged": "github:typhonjs/typhonjs-core-backbone-events-logged@master",
       "typhonjs-core-logging": "github:typhonjs/typhonjs-core-logging@master",
+      "typhonjs-core-parse-init": "github:typhonjs-parse/typhonjs-core-parse-init@master",
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.33",
-      "babel-runtime": "npm:babel-runtime@^5.8.29",
+      "babel": "npm:babel-core@^5.8.34",
+      "babel-runtime": "npm:babel-runtime@^5.8.34",
       "core-js": "npm:core-js@^1.2.6"
     }
   },
