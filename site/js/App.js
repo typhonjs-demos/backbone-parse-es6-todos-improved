@@ -13,7 +13,7 @@ import todoList         from 'pathSite/js/collections/todoList.js';
 
 /**
  * Provides the main entry point for the Todos app and major control functionality (the C in MVC). This control
- * functionality is exposed over an eventbus created by `mainEventbus.js`. `typhonjs-backbone-parse` provides
+ * functionality is exposed over an eventbus created by `mainEventbus.js`. `backbone-parse-es6` provides
  * additional functionality particularly for `Backbone.Events` adding the ability to invoke asynchronous actions
  * over the eventbus using the `triggerThen` method which resolves any Promises returned by event targets.
  *
