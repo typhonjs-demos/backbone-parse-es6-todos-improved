@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js | backbone-parse-es6-todos-improved API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/typhonjs-demos/backbone-parse-es6-todos-improved/backbone-parse-es6-todos-improved.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">(backbone-parse-es6):<br>backbone/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs-parse/backbone-parse-es6@master/src/BackboneParseObject.js~BackboneParseObject.html">BackboneParseObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs-parse/backbone-parse-es6@master/src/ParseCollection.js~ParseCollection.html">ParseCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs-parse/backbone-parse-es6@master/src/ParseModel.js~ParseModel.html">ParseModel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-modelExtend">modelExtend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parseExtend">parseExtend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parseSync">parseSync</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-parseCollection">parseCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-parseModel">parseModel</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">backbone-es6/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Backbone.js~Backbone.html">Backbone</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Collection.js~Collection.html">Collection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Debug.js~Debug.html">Debug</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/History.js~History.html">History</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Model.js~Model.html">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Router.js~Router.html">Router</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/Utils.js~Utils.html">Utils</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/backbone-es6@master/src/View.js~View.html">View</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-extend">extend</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-sync">sync</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BackboneProxy">BackboneProxy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-collection">collection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-model">model</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-common/src</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-typhonExtend">typhonExtend</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-events-logged/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-events-logged@master/src/TyphonLoggedEvents.js~TyphonLoggedEvents.html">TyphonLoggedEvents</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-events/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-events@master/src/Events.js~Events.html">Events</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-events@master/src/TyphonEvents.js~TyphonEvents.html">TyphonEvents</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-backbone-query/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-backbone-query@master/src/BackboneQuery.js~BackboneQuery.html">BackboneQuery</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-logging/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/ConsoleLogger.js~ConsoleLogger.html">ConsoleLogger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-logging@master/src/Logger.js~Logger.html">Logger</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">typhonjs-core-utils/src</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/jspm_packages/github/typhonjs/typhonjs-core-utils@master/src/Utils.js~Utils.html">Utils</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-btoa">btoa</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/App.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/collections</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/collections/todoList.js~TodoList.html">TodoList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-todoList">todoList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/models</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/models/Item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/models/appState.js~AppState.html">AppState</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-appState">appState</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/router</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/router/AppRouter.js~AppRouter.html">AppRouter</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">site/js/views</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/views/ItemView.js~ItemView.html">ItemView</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/views/LogInView.js~LogInView.html">LogInView</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/backbone-parse-es6-todos-improved/site/js/views/ManageTodosView.js~ManageTodosView.html">ManageTodosView</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">backbone-parse-es6-todos-improved/site/js/views/LogInView.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+
+import _                from &apos;underscore&apos;;
+import Backbone         from &apos;backbone&apos;;
+import eventbus         from &apos;mainEventbus&apos;;
+
+import loginTmpl        from &apos;pathSite/templates/login.html!text&apos;;
+
+/**
+ * Provides a `Backbone.View` allowing a user to login or sign up.
+ */
+export default class LogInView extends Backbone.View
+{
+   /**
+    * Delegated events for logging in and signing up.
+    *
+    * @returns {object}
+    */
+   get events()
+   {
+      return {
+         &apos;submit form.login-form&apos;: &apos;logIn&apos;,
+         &apos;submit form.signup-form&apos;: &apos;signUp&apos;
+      };
+   }
+
+   /**
+    * Sets the element this view is associated with to `.content`.
+    */
+   constructor()
+   {
+      super({ el: &apos;.content&apos; });
+   }
+
+   /**
+    * Binds `this` to the methods specified and renders the view.
+    */
+   initialize()
+   {
+      // Binds the `this` context to all methods such that it is accessible via Backbone event callbacks.
+      _.bindAll(this, &apos;logIn&apos;, &apos;signUp&apos;);
+
+      this.render();
+   }
+
+   /**
+    * Attempts to login a user by invoking `triggerThen` sending a `app:user:login` event which is handled in `App.js`
+    * which subsequently returns a Promise.
+    *
+    * @param {object}   e - event data
+    */
+   logIn(e)
+   {
+      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
+      e.preventDefault();
+
+      const username = this.$(&apos;#login-username&apos;).val();
+      const password = this.$(&apos;#login-password&apos;).val();
+
+      // Dispatch the `app:user:login` event with the username / password and catch any login error. If an error occurs
+      // then briefly show the error message.
+      eventbus.triggerThen(&apos;app:user:login&apos;, { username, password }).catch(() =&gt;
+      {
+         this.$(&apos;.login-form .error&apos;).html(&apos;Invalid username or password. Please try again.&apos;).show(&apos;fast&apos;);
+
+         // Hide the error message and enable the login button.
+         setTimeout(() =&gt;
+         {
+            this.$(&apos;.login-form .error&apos;).hide(&apos;fast&apos;);
+            this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, false);
+         }, 3000);
+      });
+
+      // Always set the login button to disabled. If there is an error the button is enabled again.
+      this.$(&apos;.login-form button&apos;).prop(&apos;disabled&apos;, true);
+   }
+
+   /**
+    * Renders the login view.
+    */
+   render()
+   {
+      // Set the `.content` element to the login template.
+      this.$el.html(_.template(loginTmpl));
+
+      // Automatically wires all events specified by `get events()`.
+      this.delegateEvents();
+   }
+
+   /**
+    * Attempts to sign up a user by invoking `triggerThen` sending a `app:user:signup` event which is handled in
+    * `App.js` which subsequently returns a Promise.
+    *
+    * @param {object}   e - event data
+    */
+   signUp(e)
+   {
+      // When dealing with a form submit button it&apos;s necessary to prevent the default form submission.
+      e.preventDefault();
+
+      const username = this.$(&apos;#signup-username&apos;).val();
+      const password = this.$(&apos;#signup-password&apos;).val();
+
+      // Dispatch the `app:user:signup` event with the username / password and catch any sign up error. If an error
+      // occurs then briefly show the error message.
+      eventbus.triggerThen(&apos;app:user:signup&apos;, { username, password }).catch((error) =&gt;
+      {
+         this.$(&apos;.signup-form .error&apos;).html(_.escape(error.message)).show(&apos;fast&apos;);
+
+         // Hide the error message and enable the sign up button.
+         setTimeout(() =&gt;
+         {
+            this.$el.find(&apos;.signup-form .error&apos;).hide(&apos;fast&apos;);
+            this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, false);
+         }, 3000);
+      });
+
+      // Always set the sign up button to disabled. If there is an error the button is enabled again.
+      this.$(&apos;.signup-form button&apos;).prop(&apos;disabled&apos;, true);
+   }
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.3)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
