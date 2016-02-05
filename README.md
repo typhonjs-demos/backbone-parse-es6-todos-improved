@@ -15,3 +15,7 @@ More info coming soon.
 Live demo here: http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/
 
 Docs (class overview) here: http://js.demos.typhonrt.org/backbone-parse-es6-todos-improved/docs/
+
+------
+
+Please review [electron-backbone-parse-es6-todos-improved](https://github.com/typhonjs-demos/electron-backbone-parse-es6-todos-improved) for how to create a desktop version from the bundled version of this web app using [Electron](http://electron.atom.io/). Minimal code and configuration is necessary when using [typhonjs-core-gulptasks](https://github.com/typhonjs/typhonjs-core-gulptasks) to work with Electron.
