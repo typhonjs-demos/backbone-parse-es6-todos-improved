@@ -1669,7 +1669,7 @@ $__System.register('3c', ['8', '9', '11', '30', '39', 'a', 'b', 'c', 'd', '3d', 
           * The main view that lets a user manage their todos `Items`. When the various items are rendered they are tracked
           * in the `itemViews` map so that they can be cleaned up correctly.
           *
-          * It should be noted that since this app is based on `typhonjs-backbone-parse` there are additional lifecycle methods
+          * It should be noted that since this app is based on `backbone-parse-es6` there are additional lifecycle methods
           * added to Backbone.View such as `close` which automatically removes all listeners defined by `listenTo`.
           */
          'use strict';
@@ -1926,7 +1926,7 @@ $__System.register('3c', ['8', '9', '11', '30', '39', 'a', 'b', 'c', 'd', '3d', 
                /**
                 * When the view is closed and destroyed invoke clearAll() to clean up any child `ItemViews`.
                 *
-                * `typhonjs-backbone-parse` provides lifecycle methods for `Backbone.View` including close which has to callbacks
+                * `backbone-parse-es6` provides lifecycle methods for `Backbone.View` including close which has to callbacks
                 * `onBeforeClose` and `onDestroy` which allow a TyphonJS View to hook into the lifecycle.
                 */
             }, {
@@ -1997,7 +1997,7 @@ $__System.register('8', ['9', 'a', 'b', 'c', 'd'], function (_export) {
           key: 'className',
 
           /**
-           * Sets the `className` necessary for constructing a Backbone.Model with `typhonjs-backbone-parse`.
+           * Sets the `className` necessary for constructing a Backbone.Model with `backbone-parse-es6`.
            *
            * @returns {string}
            */
@@ -22202,7 +22202,7 @@ $__System.register('c3', ['4', '7', '8', '9', '10', 'c', 'd', '4b', 'e', '3c', '
 
          /**
           * Provides the main entry point for the Todos app and major control functionality (the C in MVC). This control
-          * functionality is exposed over an eventbus created by `mainEventbus.js`. `typhonjs-backbone-parse` provides
+          * functionality is exposed over an eventbus created by `mainEventbus.js`. `backbone-parse-es6` provides
           * additional functionality particularly for `Backbone.Events` adding the ability to invoke asynchronous actions
           * over the eventbus using the `triggerThen` method which resolves any Promises returned by event targets.
           *
