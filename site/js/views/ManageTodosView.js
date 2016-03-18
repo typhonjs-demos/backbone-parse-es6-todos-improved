@@ -192,7 +192,7 @@ export default class ManageTodosView extends Backbone.View
    {
       const filterValue = appState.get('filter');
 
-      switch(filterValue)
+      switch (filterValue)
       {
          case 'all':
             this.addAll();

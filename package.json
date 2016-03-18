@@ -8,16 +8,18 @@
     "type": "git",
     "url": "https://github.com/typhonjs-demos/backbone-parse-es6-todos-improved/backbone-parse-es6-todos-improved.git"
   },
+  "bugs": {
+    "url": "https://github.com/typhonjs-demos/backbone-parse-es6-todos-improved/issues"
+  },
   "jspm": {
-    "main": false,
     "dependencies": {
-      "backbone": "github:typhonjs-parse/backbone-parse-es6@master",
-      "jquery": "github:typhonjs/zepto@master",
+      "backbone": "github:typhonjs-backbone-parse/backbone-parse-es6@master",
+      "jquery": "github:typhonjs-browser/zepto@master",
       "parse": "npm:parse@^1.7.0",
       "text": "github:systemjs/plugin-text@^0.0.2",
-      "typhonjs-core-backbone-events-logged": "github:typhonjs/typhonjs-core-backbone-events-logged@master",
-      "typhonjs-core-logging": "github:typhonjs/typhonjs-core-logging@master",
-      "typhonjs-core-parse-init": "github:typhonjs-parse/typhonjs-core-parse-init@master",
+      "typhonjs-core-backbone-events-logged": "github:typhonjs-backbone/typhonjs-core-backbone-events-logged@master",
+      "typhonjs-core-logging": "github:typhonjs-common/typhonjs-core-logging@master",
+      "typhonjs-core-parse-init": "github:typhonjs-backbone-parse/typhonjs-core-parse-init@master",
       "underscore": "npm:underscore@^1.8.3"
     },
     "devDependencies": {
@@ -27,10 +29,10 @@
     }
   },
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "jspm": "^0.16.25",
-    "typhonjs-config-eslint": "^0.2.1",
-    "typhonjs-config-jspm-parse": "^0.4.0",
-    "typhonjs-core-gulptasks": "^0.5.0"
+    "gulp": "^3.0.0",
+    "jspm": "^0.16.0",
+    "typhonjs-config-eslint": "^0.4.0",
+    "typhonjs-core-gulptasks": "^0.6.0",
+    "typhonjs-npm-build-test": "^0.1.0"
   }
 }
