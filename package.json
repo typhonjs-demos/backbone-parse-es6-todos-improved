@@ -15,17 +15,17 @@
     "dependencies": {
       "backbone": "github:typhonjs-backbone-parse/backbone-parse-es6@master",
       "jquery": "github:typhonjs-browser/zepto@master",
-      "parse": "npm:parse@^1.8.0",
+      "parse": "npm:parse@^1.0.0",
       "text": "github:systemjs/plugin-text@^0.0.2",
       "typhonjs-core-backbone-events-logged": "github:typhonjs-backbone/typhonjs-core-backbone-events-logged@master",
       "typhonjs-core-logging": "github:typhonjs-common/typhonjs-core-logging@master",
       "typhonjs-core-parse-init": "github:typhonjs-backbone-parse/typhonjs-core-parse-init@master",
-      "underscore": "npm:underscore@^1.8.0"
+      "underscore": "npm:underscore@^1.0.0"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.0",
-      "babel-runtime": "npm:babel-runtime@^5.8.0",
-      "core-js": "npm:core-js@^1.2.0"
+      "babel": "npm:babel-core@^5.0.0",
+      "babel-runtime": "npm:babel-runtime@^5.0.0",
+      "core-js": "npm:core-js@^1.0.0"
     }
   },
   "devDependencies": {
